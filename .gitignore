@@ -1,0 +1,13 @@
+# Python virtual environment
+venv/
+
+# Data files
+data/*.fits
+data/*.fits.gz
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
