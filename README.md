@@ -36,6 +36,7 @@ nsa-analysis/
 ├── venv/        # Python virtual environment (ignored by Git)
 ├── README.md
 └── .gitignore
+```
 
 ## Tools
 - Python 3
