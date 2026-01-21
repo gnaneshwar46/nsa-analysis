@@ -114,13 +114,14 @@ This project independently reproduces these results using a large, homogeneous l
 
 nsa-analysis/
 ├── data/
-│   └── nsa_v1_0_1.fits
+│   └── nsa_v1_0_1.fits        
 ├── scripts/
-│   └── explore_nsa.py
+│   └── explore_nsa.py         
 ├── mass_size_relation_fit.png
 ├── mass_size_relation_morphology.png
+├── .gitignore
 └── README.md
-
+The `scripts/` directory contains the full, reproducible analysis pipeline. Figures shown above are generated directly by the analysis script.
 -----
 
 ## Key Takeaways
