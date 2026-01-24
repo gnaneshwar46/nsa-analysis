@@ -69,7 +69,7 @@ For the full galaxy sample, the best-fit relation is:
 - **Slope**: \($\alpha = 0.248$\)  
 - **Normalization**: \($\beta = 0.627$\)  
   (corresponding to \($R_e \approx 4.2 \,\mathrm{kpc}$\) at \($10^{10} M_\odot$\))  
-- **Scatter**:$\sim 0.33$ dex in \( $\log R_e$\)
+- **Scatter**: $\sim 0.33$ dex in $\log R_e$
 
 The shallow slope and large scatter reflect the fact that this relation mixes galaxies with different formation histories.
 
