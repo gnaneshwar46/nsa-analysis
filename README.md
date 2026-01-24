@@ -36,27 +36,27 @@ The following minimal, physically motivated cuts are applied:
 - successful Sérsic fits (`SERSIC_OK == 1`)
 - finite and positive stellar mass and size
 - a minimum physical size cut  
-  **\( R_e > 0.5 \,\mathrm{kpc} \)**  
+ $$\( R_e > 0.5 \,\mathrm{kpc} \)$$
   which removes unresolved systems and pathological fits
 
 ### Physical units
 
 - Stellar mass is converted to  
-  **\( \log_{10}(M_\star / M_\odot) \)**
+  $$\( \log_{10}(M_\star / M_\odot) \)$$
 - Angular sizes are converted from arcseconds to kiloparsecs using a flat ΛCDM cosmology  
-  (**\( H_0 = 70 \), \( \Omega_m = 0.3 \)**)
+  ($$\( H_0 = 70 \), \( \Omega_m = 0.3 \)$$)
 
 ### Fitting approach
 
 The mass–size relation is modeled as:
 
-\[
+$$\[
 \log R_e = \alpha (\log M_\star - 10) + \beta
-\]
+\]$$
 
 where:
-- \( \alpha \) is the slope
-- \( \beta \) is the normalization at \( 10^{10} M_\odot \)
+- \($\alpha$\) is the slope
+- \($\beta$\) is the normalization at \($10^{10} M_\odot$\)
 
 ---
 
@@ -66,10 +66,10 @@ where:
 
 For the full galaxy sample, the best-fit relation is:
 
-- **Slope**: \( \alpha = 0.248 \)  
-- **Normalization**: \( \beta = 0.627 \)  
-  (corresponding to \( R_e \approx 4.2 \,\mathrm{kpc} \) at \( 10^{10} M_\odot \))  
-- **Scatter**: ~0.33 dex in \( \log R_e \)
+- **Slope**: \($\alpha = 0.248$\)  
+- **Normalization**: \($\beta = 0.627$\)  
+  (corresponding to \($R_e \approx 4.2 \,\mathrm{kpc}$\) at \($10^{10} M_\odot$\))  
+- **Scatter**:$\sim 0.33$ dex in \( $\log R_e$\)
 
 The shallow slope and large scatter reflect the fact that this relation mixes galaxies with different formation histories.
 
@@ -79,10 +79,10 @@ The shallow slope and large scatter reflect the fact that this relation mixes ga
 
 Galaxies are separated using the Sérsic index:
 
-- **Disk-like**: \( n < 2.5 \)  
-- **Spheroid-like**: \( n \ge 2.5 \)
+- **Disk-like**: \($n < 2.5$\)  
+- **Spheroid-like**: \( $n \ge 2.5$ \)
 
-| Population | Number | Slope \( \alpha \) |
+| Population | Number | Slope \( $\alpha$ \) |
 |----------|--------|------------------|
 | Disk-like | 306,870 | 0.264 |
 | Spheroid-like | 325,625 | 0.428 |
