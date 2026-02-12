@@ -6,7 +6,7 @@ This repository contains exploratory data analysis of the NASA-Sloan Atlas (NSA)
 
 This project represents the initial exploratory phase prior to building a structured and reproducible scaling-relation analysis pipeline.
 
-The fully modular and reproducible version of this analysis is available in:
+The fully modular and reproducible version of this analysis is available at:
 
 👉 https://github.com/gnaneshwar46/galaxy-scaling-relations
 
@@ -50,30 +50,36 @@ The following minimal, physically motivated cuts are applied:
 
 - successful Sérsic fits (`SERSIC_OK == 1`)
 - finite and positive stellar mass and size
-- a minimum physical size cut  
-  \( R_e > 0.5 \,\mathrm{kpc} \)
+- a minimum physical size cut:  
+  **Re > 0.5 kpc**
 
-which removes unresolved systems and pathological fits.
+This removes unresolved systems and pathological fits.
+
+---
 
 ### Physical units
 
-- Stellar mass is converted to  
-  \( \log_{10}(M_\star / M_\odot) \)
-- Angular sizes are converted from arcseconds to kiloparsecs using a flat ΛCDM cosmology  
-  \( H_0 = 70 \), \( \Omega_m = 0.3 \)
+- Stellar mass is expressed as:
+
+  **log10(M* / Msun)**
+
+- Angular sizes are converted from arcseconds to kiloparsecs using a flat ΛCDM cosmology with:
+
+  - H0 = 70 km/s/Mpc  
+  - Ωm = 0.3  
+
+---
 
 ### Fitting approach
 
 The mass–size relation is modeled as:
 
-\[
-\log R_e = \alpha (\log M_\star - 10) + \beta
-\]
+**log(Re) = α [log(M*) − 10] + β**
 
 where:
 
-- \( \alpha \) is the slope  
-- \( \beta \) is the normalization at \( 10^{10} M_\odot \)
+- α = slope  
+- β = normalization at 10^10 solar masses  
 
 ---
 
@@ -83,10 +89,10 @@ where:
 
 For the full galaxy sample, the best-fit relation is:
 
-- **Slope**: \( \alpha = 0.248 \)  
-- **Normalization**: \( \beta = 0.627 \)  
-  (corresponding to \( R_e \approx 4.2 \,\mathrm{kpc} \) at \( 10^{10} M_\odot \))  
-- **Scatter**: \( \sim 0.33 \) dex in \( \log R_e \)
+- **Slope (α)**: 0.248  
+- **Normalization (β)**: 0.627  
+  (corresponding to Re ≈ 4.2 kpc at 10^10 solar masses)  
+- **Scatter**: ~0.33 dex in log(Re)
 
 The shallow slope and substantial scatter indicate that the global relation combines galaxies with diverse structural properties and evolutionary histories.
 
@@ -96,13 +102,13 @@ The shallow slope and substantial scatter indicate that the global relation comb
 
 Galaxies are separated using the Sérsic index:
 
-- **Disk-like**: \( n < 2.5 \)  
-- **Spheroid-like**: \( n \ge 2.5 \)
+- **Disk-like**: n < 2.5  
+- **Spheroid-like**: n ≥ 2.5  
 
-| Population | Number | Slope \( \alpha \) |
-|------------|--------|------------------|
-| Disk-like | 306,870 | 0.264 |
-| Spheroid-like | 325,625 | 0.428 |
+| Population     | Number   | Slope (α) |
+|---------------|----------|-----------|
+| Disk-like     | 306,870  | 0.264     |
+| Spheroid-like | 325,625  | 0.428     |
 
 The morphology-separated relations suggest that structural classification plays an important role in organizing the observed scaling behavior.
 
@@ -126,9 +132,9 @@ These findings motivated the development of a modular and reproducible scaling-r
 
 The exploratory trends are broadly consistent with previous studies of nearby galaxies, including:
 
-- Shen et al. (2003)
-- van der Wel et al. (2014)
-- Lange et al. (2015)
+- Shen et al. (2003)  
+- van der Wel et al. (2014)  
+- Lange et al. (2015)  
 
 A more rigorous and structured comparison is carried out in the dedicated scaling-relation repository.
 
@@ -146,3 +152,12 @@ nsa-analysis/
 ├── mass_size_relation_morphology.png
 ├── .gitignore
 └── README.md
+```
+
+---
+
+## Next Steps
+
+The structured and fully reproducible implementation of this analysis is available at:
+
+👉 https://github.com/gnaneshwar46/galaxy-scaling-relations
