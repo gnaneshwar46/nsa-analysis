@@ -1,12 +1,27 @@
-# NSA Galaxy Mass–Size Relation Analysis
+# NSA Catalog Exploration and Preliminary Mass–Size Analysis
 
 ## Overview
 
-This project explores how **galaxy size scales with stellar mass** in the nearby universe using data from the **NASA–Sloan Atlas (NSA)**.
+This repository contains exploratory data analysis of the NASA-Sloan Atlas (NSA) catalog, focusing on validation, data inspection, and preliminary investigation of the stellar mass–size relation.
 
-The goal is not just to reproduce the well-known mass–size relation, but to understand **why it looks the way it does**, and how galaxy structure and morphology influence it.
+This project represents the initial exploratory phase prior to building a structured and reproducible scaling-relation analysis pipeline.
 
-The analysis follows a clean, reproducible workflow starting from the raw survey catalog and ending with physically interpretable results.
+The fully modular and reproducible version of this analysis is available in:
+
+👉 https://github.com/gnaneshwar46/galaxy-scaling-relations
+
+---
+
+## Purpose of This Repository
+
+This project focuses on:
+
+- Inspecting NSA catalog structure
+- Validating key parameters (stellar mass, effective radius, Sérsic index)
+- Performing initial quality cuts
+- Generating preliminary mass–size visualizations
+
+It serves as the exploratory foundation for subsequent structured analysis.
 
 ---
 
@@ -36,84 +51,86 @@ The following minimal, physically motivated cuts are applied:
 - successful Sérsic fits (`SERSIC_OK == 1`)
 - finite and positive stellar mass and size
 - a minimum physical size cut  
- $$\( R_e > 0.5 \,\mathrm{kpc} \)$$
-  which removes unresolved systems and pathological fits
+  \( R_e > 0.5 \,\mathrm{kpc} \)
+
+which removes unresolved systems and pathological fits.
 
 ### Physical units
 
 - Stellar mass is converted to  
-  $$\( \log_{10}(M_\star / M_\odot) \)$$
+  \( \log_{10}(M_\star / M_\odot) \)
 - Angular sizes are converted from arcseconds to kiloparsecs using a flat ΛCDM cosmology  
-  ($$\( H_0 = 70 \), \( \Omega_m = 0.3 \)$$)
+  \( H_0 = 70 \), \( \Omega_m = 0.3 \)
 
 ### Fitting approach
 
 The mass–size relation is modeled as:
 
-$$\[
+\[
 \log R_e = \alpha (\log M_\star - 10) + \beta
-\]$$
+\]
 
 where:
-- \($\alpha$\) is the slope
-- \($\beta$\) is the normalization at \($10^{10} M_\odot$\)
+
+- \( \alpha \) is the slope  
+- \( \beta \) is the normalization at \( 10^{10} M_\odot \)
 
 ---
 
-## Results
+## Preliminary Observations
 
 ### Global mass–size relation
 
 For the full galaxy sample, the best-fit relation is:
 
-- **Slope**: \($\alpha = 0.248$\)  
-- **Normalization**: \($\beta = 0.627$\)  
-  (corresponding to \($R_e \approx 4.2 \,\mathrm{kpc}$\) at \($10^{10} M_\odot$\))  
-- **Scatter**: $\sim 0.33$ dex in $\log R_e$
+- **Slope**: \( \alpha = 0.248 \)  
+- **Normalization**: \( \beta = 0.627 \)  
+  (corresponding to \( R_e \approx 4.2 \,\mathrm{kpc} \) at \( 10^{10} M_\odot \))  
+- **Scatter**: \( \sim 0.33 \) dex in \( \log R_e \)
 
-The shallow slope and large scatter reflect the fact that this relation mixes galaxies with different formation histories.
+The shallow slope and substantial scatter indicate that the global relation combines galaxies with diverse structural properties and evolutionary histories.
 
 ---
 
-### Mass–size relation by morphology
+### Morphology-separated mass–size relation
 
 Galaxies are separated using the Sérsic index:
 
-- **Disk-like**: \($n < 2.5$\)  
-- **Spheroid-like**: \( $n \ge 2.5$ \)
+- **Disk-like**: \( n < 2.5 \)  
+- **Spheroid-like**: \( n \ge 2.5 \)
 
-| Population | Number | Slope \( $\alpha$ \) |
-|----------|--------|------------------|
+| Population | Number | Slope \( \alpha \) |
+|------------|--------|------------------|
 | Disk-like | 306,870 | 0.264 |
 | Spheroid-like | 325,625 | 0.428 |
 
-Disk galaxies follow a shallower relation, consistent with gradual, inside-out growth.  
-Spheroid-dominated galaxies show a steeper relation, consistent with merger-driven size evolution.
+The morphology-separated relations suggest that structural classification plays an important role in organizing the observed scaling behavior.
 
-This split explains a large fraction of the scatter seen in the global relation.
+This exploratory result motivated a more structured investigation of morphology-dependent scaling relations.
 
 ---
 
-## Physical Interpretation
+## Exploratory Interpretation
 
-The results support a picture in which:
+The exploratory analysis suggests:
 
-- disk galaxies grow steadily through star formation and gas accretion
-- spheroidal systems grow primarily through mergers, which increase size more efficiently than mass
+- Disk galaxies exhibit a shallower mass–size relation.
+- Spheroid-dominated systems show a steeper slope.
+- A significant fraction of the global scatter may be associated with structural differences.
 
-The observed mass–size relation is therefore not universal, but the result of combining these two distinct growth channels.
+These findings motivated the development of a modular and reproducible scaling-relation analysis pipeline.
 
 ---
 
 ## Relation to the Literature
 
-The measured slopes and trends are consistent with previous studies of nearby galaxies, including:
+The exploratory trends are broadly consistent with previous studies of nearby galaxies, including:
 
 - Shen et al. (2003)
 - van der Wel et al. (2014)
 - Lange et al. (2015)
 
-This project independently reproduces these results using a large, homogeneous local-universe sample.
+A more rigorous and structured comparison is carried out in the dedicated scaling-relation repository.
 
 ---
 
@@ -129,4 +146,3 @@ nsa-analysis/
 ├── mass_size_relation_morphology.png
 ├── .gitignore
 └── README.md
-```

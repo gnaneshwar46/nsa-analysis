@@ -18,7 +18,7 @@ Steps:
 # ----------------------------------------------------
 # Imports
 # ----------------------------------------------------
-
+import os
 from astropy.io import fits
 from astropy.table import Table
 from astropy.cosmology import FlatLambdaCDM
@@ -31,7 +31,15 @@ import matplotlib.pyplot as plt
 # Load data
 # ----------------------------------------------------
 
-DATA_PATH = "data/nsa_v1_0_1.fits"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(BASE_DIR, "data", "nsa_v1_0_1.fits")
+
+if not os.path.exists(DATA_PATH):
+    raise FileNotFoundError(
+        f"\nNSA FITS file not found at: {DATA_PATH}\n"
+        "Please download the NSA catalog and place it inside the 'data/' directory.\n"
+    )
+
 
 print("Opening NSA FITS file...")
 hdul = fits.open(DATA_PATH)
